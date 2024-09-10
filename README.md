@@ -21,9 +21,3 @@ The main script is `password_validator.py`. It defines a function, `validate_pas
 - `"Not Valid Password: No number"`: If the password does not contain a digit.
 - `"Not Valid Password: No special character"`: If the password does not contain a special character.
 - `"Valid Password"`: If the password meets all the criteria.
-
-## Usage
-
-1. Clone the repository:
-   ```bash
-   git clone
