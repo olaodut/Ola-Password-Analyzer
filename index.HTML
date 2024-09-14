@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Validator</title>
+    <!-- Basic styling for the page -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+        }
+        .validator {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkgreen;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Main container for the password validator -->
+<div class="validator">
+    <!-- Title for the page -->
+    <h1>Password Validator</h1>
+
+    <!-- Input field for the user to type their password -->
+    <label for="password">Enter Password:</label>
+    <input type="password" id="password" placeholder="Enter your password">
+
+    <!-- Button that triggers the password validation when clicked -->
+    <button onclick="validatePassword()">Validate Password</button>
+
+    <!-- This div will display the validation result -->
+    <div id="result" class="result"></div>
+</div>
+
+<!-- JavaScript to handle the password validation -->
+<script>
+    // Function to validate the password
+    function validatePassword() {
+        // Get the value of the password entered by the user
+        const password = document.getElementById('password').value;
+        let result = '';  // Variable to store the validation result message
+
+        // Check if the password is less than 8 characters
+        if (password.length < 8) {
+            result = 'Not Valid Password: Too short';
+        } 
+        // Check if the password contains at least one lowercase letter
+        else if (!/[a-z]/.test(password)) {
+            result = 'Not Valid Password: No lowercase letter';
+        } 
+        // Check if the password contains at least one uppercase letter
+        else if (!/[A-Z]/.test(password)) {
+            result = 'Not Valid Password: No uppercase letter';
+        } 
+        // Check if the password contains at least one number
+        else if (!/[0-9]/.test(password)) {
+            result = 'Not Valid Password: No number';
+        } 
+        // Check if the password contains at least one special character
+        else if (!/[!@#$%&]/.test(password)) {
+            result = 'Not Valid Password: No special character';
+        } 
+        // If all checks pass, the password is valid
+        else {
+            result = 'Valid Password';
+        }
+
+        // Get the result div element by its ID and update its content
+        const resultDiv = document.getElementById('result');
+        resultDiv.textContent = result;  // Set the result text
+
+        // Make the result div visible
+        resultDiv.style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
