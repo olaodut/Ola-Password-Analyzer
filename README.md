@@ -1,4 +1,4 @@
-# Ola-Password-Analyzer
+# Password-Analyzer
 Cybersecurity Project, Password Analyzer
 
 ## Password Validator
